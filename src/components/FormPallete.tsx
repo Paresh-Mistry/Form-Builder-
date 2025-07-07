@@ -16,7 +16,6 @@ interface FieldPaletteProps {
     onDragStart: (e: React.DragEvent<HTMLDivElement>, field: { label: string; type: FieldType, icon: React.FC }) => void;
 }
 
-// Field types grouped by category
 const groupedFieldTypes = [
     {
         title: "TEXT ELEMENTS",
