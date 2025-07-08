@@ -1,69 +1,78 @@
-# React + TypeScript + Vite
+# 🧩 Form Builder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully customizable, interactive **form builder** made with **React** and **TypeScript** that allows users to **drag, drop, edit, and save** multiple forms locally. Ideal for surveys, registrations, data collection, and more—without writing a single line of code.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### ✅ Optional Field-Based Forms
+- Build forms with any number of fields.
+- Supports optional/required settings per field.
+- Customizable labels, types, and help texts.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛠️ Drag-and-Drop Field Builder
+- Intuitive UI to drag and drop fields from the palette into the canvas.
+- Field types include:
+  - Text (Short Answer, Paragraph, Email, URL, Password)
+  - Choice Inputs (Dropdown, Radio Buttons, Yes/No, Rating, Button)
+  - Date & Time (Date, Time)
+  - Upload & Media (File Upload, Image)
+  - Others (Currency)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### ✏️ Edit & Customize Fields
+- Real-time field editing on the canvas.
+- Change input type, help text, labels, and required flags.
+- Field previews update live as you edit.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 💾 Local Storage Support
+- Save your form locally with a custom name.
+- Automatically timestamped.
+- Reopen forms later for continued editing.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 📊 Interactive Dashboard
+- View all saved forms in one place.
+- Edit or delete any saved form instantly.
+- Clean and responsive UI.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📸 Preview
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![image](https://github.com/user-attachments/assets/71dbc417-a7fc-46ef-8dd4-628b69189b07)
+
+![image](https://github.com/user-attachments/assets/7f22c325-8399-49b5-9496-15399a3ab9fa)
+
+![image](https://github.com/user-attachments/assets/c93e2e17-02b7-4334-94da-2a58b784a628)
+
+![image](https://github.com/user-attachments/assets/b9386839-cdea-42e9-a9e7-c0a1d8fdd323) ![image](https://github.com/user-attachments/assets/774d6c16-9726-4b88-b553-a0c36de9e1c1) 
+
+---
+
+## ⚙️ Tech Stack
+
+- React + TypeScript
+- Tailwind CSS
+- Lucide Icons
+- Context API
+- React Router DOM
+- localStorage
+
+---
+
+## 🔧 Setup & Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/form-builder.git
+cd form-builder
+
+pnpm install
+# or
+yarn
+
+VITE_LOCAL_STORAGE_KEY=form_data
+pnpm run dev
+# or
+yarn dev
