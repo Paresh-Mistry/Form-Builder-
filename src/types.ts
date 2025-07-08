@@ -1,11 +1,20 @@
 export type FieldType =
   | 'text'
   | 'textarea'
+  | 'email'
+  | 'url'
+  | 'password'
   | 'dropdown'
   | 'radio'
   | 'boolean'
+  | 'rating'
+  | 'button'
+  | 'date'
+  | 'time'
   | 'upload'
-  | 'image';
+  | 'image'
+  | 'currency';
+
 
 export interface Field {
   id: string;

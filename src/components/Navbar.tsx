@@ -1,13 +1,13 @@
-import { Save, Upload } from 'lucide-react';
+import { Save } from 'lucide-react';
 import { useFormContext } from '../context/FormContext';
 import type React from 'react';
 
 const Navbar: React.FC = () => {
 
-    const { handleSave, handleExport} = useFormContext() || {};
+    const { handleSave } = useFormContext() || {};
 
     return (
-        
+
         <nav className="bg-white shadow-sm px-6 py-3 flex items-center justify-between border-b">
             <div className="flex items-center gap-2">
                 <a href='/' className="font-semibold text-lg text-gray-800">FormBuilder</a>
@@ -21,10 +21,6 @@ const Navbar: React.FC = () => {
                 <button className="flex items-center gap-1 text-sm text-gray-700 hover:text-black" onClick={() => handleSave()}>
                     <Save size={18} />
                     Save
-                </button> 
-                <button className="flex items-center gap-1 text-sm text-gray-700 hover:text-black" onClick={() => handleExport}>
-                    <Upload size={18} />
-                    Export
                 </button>
             </div>
         </nav>

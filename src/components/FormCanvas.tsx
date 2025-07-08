@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import FieldEditor from './FieldEditor';
 import type { Field } from '../types';
+import { useFormContext } from '../context/FormContext';
 
-interface FormCanvasProps {
-  onSave: (fields: Field[]) => void;
-}
 
-const FormCanvas: React.FC<FormCanvasProps> = () => {
-  const [fields, setFields] = useState<Field[]>([]);
+
+const FormCanvas: React.FC = () => {
+
+  const { fields, handleChange, handleDelete, setFields } = useFormContext();
 
   useEffect(() => {
     const saved = localStorage.getItem(import.meta.env.VITE_LOCAL_STORAGE_KEY);
@@ -20,6 +20,8 @@ const FormCanvas: React.FC<FormCanvasProps> = () => {
     }
   }, []);
 
+
+
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const fieldData = JSON.parse(e.dataTransfer.getData('field'));
@@ -28,31 +30,20 @@ const FormCanvas: React.FC<FormCanvasProps> = () => {
       id: crypto.randomUUID(),
       label: '',
       type: fieldData.type,
-      isEditing: false,    
-      helpText: '',        
+      isEditing: false,
+      helpText: '',
     };
-
 
     setFields([...fields, newField]);
   };
 
-  const handleChange = (index: number, updated: Field) => {
-    const newFields = [...fields];
-    newFields[index] = updated;
-    setFields(newFields);
-  };
 
-  const handleDelete = (index: number) => {
-    const newFields = [...fields];
-    newFields.splice(index, 1);
-    setFields(newFields);
-  };
 
   return (
     <div
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
-      className="flex-1 p-4 bg-white rounded shadow dotted-bg"
+      className="flex-1 bg-white py-8 rounded shadow dotted-bg"
     >
 
       {fields.length === 0 && (
@@ -68,8 +59,12 @@ const FormCanvas: React.FC<FormCanvasProps> = () => {
           onDelete={() => handleDelete(index)}
         />
       ))}
+
     </div>
+
+
   );
 };
+
 
 export default FormCanvas;
